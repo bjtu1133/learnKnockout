@@ -26,9 +26,10 @@
           </div>
           <div class="row">
             MTA Line Filter
+            <select data-bind="options:lineList, value:selectedLine"></select>
           </div>
           <div class="row">
-            <ul data-bind="foreach: trainStationList">
+            <ul data-bind="foreach: displayTrainStationList()">
               <li data-bind="text: name"></li>
             </ul>
           </div>

@@ -2,11 +2,17 @@
 var ViewModel = function() {
 	var self = this;
 
-	this.trainStationList = ko.observableArray(allTrainStations);
+	this.lineList = lineList;
+	this.selectedLine = ko.observable('Hudson Line'); 
+	this.displayTrainStationList = ko.computed(()=>{
+		if(this.selectedLine()){
+			console.log('gethere');
+			return allTrainStations.filter(station => station.line == this.selectedLine()); 
+		}		
+	}),this;
 };
-
-
 // This is the data part
+var lineList = ['Harlem Line', 'Hudson Line'];
 var allTrainStations = [
 	{
 		name : 'White Plains',
